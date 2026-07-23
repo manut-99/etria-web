@@ -88,14 +88,69 @@ link en `site.bookingUrl` (`src/content.ts`).
 
 ### Configurar el formulario
 
-Por defecto `site.formEndpoint` está vacío: el formulario arma el mensaje y abre
-el cliente de correo del visitante con todo cargado. Funciona sin backend, pero
-depende de que la persona tenga mail configurado.
+El formulario postea a `api/contact.ts`, una función serverless que corre en
+Vercel. Hace dos cosas: manda el mail por **Resend** y crea una tarea en
+**Jira GEN** con categoría **RRPP**. Si Jira falla, el mail sale igual y el
+error queda en los logs.
 
-Para recibir los mensajes por HTTP, creá un formulario en
-[Formspree](https://formspree.io) o [Web3Forms](https://web3forms.com) (ambos
-tienen plan gratuito), apuntá el destino a `info@etriahealth.com` y pegá el
-endpoint en `site.formEndpoint`. No hay que tocar nada más.
+#### 1. Verificar el dominio en Resend
+
+Resend necesita comprobar que el dominio es tuyo antes de dejarte mandar mails
+desde `@etriahealth.com` (si no, cualquiera podría mandar mails haciéndose pasar
+por vos, y los proveedores lo mandarían a spam).
+
+1. Creá una cuenta en [resend.com](https://resend.com) → **Domains** → **Add
+   Domain** → `etriahealth.com`.
+2. Resend muestra tres registros DNS para copiar: uno de **DKIM** (firma), uno
+   de **SPF** (quién puede mandar) y uno de **DMARC** (qué hacer si algo no
+   valida).
+3. Pegalos donde estén los nameservers de `etriahealth.com`: el panel del
+   registrador donde compraste el dominio, o Vercel (**Settings → Domains**) si
+   delegaste el DNS ahí.
+4. Volvé a Resend y apretá **Verify**. Suele tardar minutos; el DNS puede
+   demorar hasta 48 h en propagar.
+5. Creá una **API key** y guardala como `RESEND_API_KEY` en Vercel.
+
+Mientras el dominio no esté verificado, Resend solo deja mandar desde su dominio
+de prueba (`onboarding@resend.dev`), útil para probar el circuito.
+
+#### 2. Token de Jira
+
+Generá uno en
+[id.atlassian.com → API tokens](https://id.atlassian.com/manage-profile/security/api-tokens)
+y guardalo como `JIRA_API_TOKEN`.
+
+#### 3. Variables de entorno en Vercel
+
+| Variable | Valor |
+| --- | --- |
+| `RESEND_API_KEY` | tu API key de Resend |
+| `CONTACT_TO` | `info@etriahealth.com` |
+| `CONTACT_FROM` | `Etria <web@etriahealth.com>` |
+| `JIRA_BASE_URL` | `https://triarge.atlassian.net` |
+| `JIRA_EMAIL` | mail de la cuenta Atlassian dueña del token |
+| `JIRA_API_TOKEN` | token de Atlassian |
+| `JIRA_PROJECT_KEY` | `GEN` |
+| `JIRA_ISSUE_TYPE_ID` | `10060` (Task) |
+| `JIRA_CATEGORY_FIELD` | `customfield_10105` (Category) |
+| `JIRA_CATEGORY_ID` | `10022` (RRPP) |
+
+Los últimos cinco ya vienen como valores por defecto en el código; solo hay que
+declararlos si algo cambia en Jira.
+
+#### Probar en local
+
+`npm run dev` levanta solo el front y **no** sirve `/api`. Para probar el
+formulario entero:
+
+```bash
+npm i -g vercel
+vercel dev
+```
+
+Si `site.formEndpoint` se deja vacío en `src/content.ts`, el formulario vuelve
+al comportamiento anterior (abre el cliente de correo). Útil para trabajar sin
+credenciales.
 
 ## Sección regulatoria (desactivada)
 
@@ -106,7 +161,7 @@ instrucciones para reactivarla están comentadas arriba de todo en `src/App.tsx`
 ## Pendientes antes de publicar
 
 - [ ] Pegar el link real de Google Calendar en `site.bookingUrl`
-- [ ] Decidir si el formulario usa `mailto` o un endpoint (ver arriba)
+- [ ] Verificar `etriahealth.com` en Resend y cargar las variables de entorno
 - [ ] Imagen `og:image` (1200×630) y agregarla en `index.html`
 - [ ] Revisión legal del disclaimer del footer
 - [ ] Validar con un revisor clínico el ejemplo de sesión del hero

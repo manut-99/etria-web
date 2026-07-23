@@ -9,11 +9,10 @@ export const site = {
   bookingUrl: "https://calendar.app.google/BSyzQfLmfZ3xyqCr9",
   emergencyNumber: "107",
   /**
-   * Vacío = el formulario abre el cliente de correo del visitante (mailto).
-   * Para recibir los mensajes por HTTP, pegar acá el endpoint de Formspree
-   * o Web3Forms y no hace falta tocar nada más.
+   * Endpoint propio (api/contact.ts): manda el mail por Resend y crea la
+   * tarea en Jira. Si se deja vacío, el formulario cae de nuevo en `mailto:`.
    */
-  formEndpoint: "",
+  formEndpoint: "/api/contact",
   regulatoryAsOf: "julio 2026",
 };
 
@@ -261,6 +260,8 @@ export const cta = {
       message: "¿Qué te gustaría ver?",
     },
     required: "Completá nombre, email y mensaje.",
+    privacy:
+      "Usamos estos datos solo para responderte. No los compartimos con terceros y podés pedirnos que los borremos cuando quieras.",
   },
 };
 

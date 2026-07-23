@@ -16,6 +16,7 @@ export function Contact() {
     email: "",
     members: "",
     message: "",
+    website: "", // honeypot anti-spam: si viene completo, es un bot
   });
 
   const set = (k: keyof typeof form) => (e: { target: { value: string } }) =>
@@ -182,6 +183,17 @@ export function Contact() {
                       />
                     </div>
 
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      value={form.website}
+                      onChange={set("website")}
+                      className="pointer-events-none absolute -left-[9999px] h-0 w-0 opacity-0"
+                    />
+
                     <div className="flex flex-wrap items-center gap-4">
                       <button
                         type="submit"
@@ -196,6 +208,10 @@ export function Contact() {
                         </p>
                       )}
                     </div>
+
+                    <p className="text-[0.78rem] leading-relaxed text-sky/50">
+                      {cta.form.privacy}
+                    </p>
                   </form>
                 )}
               </div>
