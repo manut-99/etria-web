@@ -1,4 +1,4 @@
-import { hero, mailto } from "../content";
+import { hero } from "../content";
 import { SessionDemo } from "../components/SessionDemo";
 
 export function Hero() {
@@ -18,13 +18,8 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div>
-          <p className="rise eyebrow inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1.5 text-sky/85">
-            <span className="h-1.5 w-1.5 rounded-full bg-ember" />
-            {hero.eyebrow}
-          </p>
-
           <h1
-            className="rise mt-7 text-[2.7rem] text-white sm:text-[3.6rem] lg:text-[4rem]"
+            className="rise text-[2.7rem] text-white sm:text-[3.6rem] lg:text-[4rem]"
             style={{ animationDelay: "80ms", fontWeight: 600 }}
           >
             {hero.headline[0]}
@@ -46,7 +41,7 @@ export function Hero() {
             style={{ animationDelay: "240ms" }}
           >
             <a
-              href={mailto("Demo de Etria")}
+              href="#contacto"
               className="rounded-full bg-ember px-6 py-3 font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#ff7d45]"
             >
               {hero.ctaPrimary}

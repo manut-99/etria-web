@@ -5,8 +5,16 @@
 
 export const site = {
   brand: "Etria",
-  contactEmail: "hola@etria.health", // TODO: reemplazar por el mail real
+  contactEmail: "info@etriahealth.com",
+  /** TODO: pegar el link publico de Google Calendar (Appointment schedule). */
+  bookingUrl: "https://calendar.app.google/REEMPLAZAR",
   emergencyNumber: "107",
+  /**
+   * Vacío = el formulario abre el cliente de correo del visitante (mailto).
+   * Para recibir los mensajes por HTTP, pegar acá el endpoint de Formspree
+   * o Web3Forms y no hace falta tocar nada más.
+   */
+  formEndpoint: "",
   regulatoryAsOf: "julio 2026",
 };
 
@@ -21,15 +29,13 @@ export const nav = {
     { label: "Cómo funciona", href: "#como-funciona" },
     { label: "Motor clínico", href: "#motor" },
     { label: "Para el financiador", href: "#producto" },
-    { label: "Regulatorio", href: "#regulatorio" },
   ],
   cta: "Pedir una demo",
 };
 
 export const hero = {
-  eyebrow: "Software como producto médico · Consulta previa ANMAT en curso",
   headline: ["Nadie debería", "tener que adivinar", "si ir a la guardia."],
-  sub: "Etria acompaña al afiliado desde la app de su cobertura. Le pregunta lo justo, entiende qué le está pasando y lo orienta hacia la guardia, una teleconsulta o el cuidado en casa. Detrás de cada respuesta hay un protocolo clínico revisado por médicos.",
+  sub: "Etria acompaña al afiliado desde la app de su cobertura: entiende lo que le está pasando y lo orienta hacia la atención médica que necesita.",
   ctaPrimary: "Pedir una demo",
   ctaSecondary: "Ver cómo funciona",
   demoLabel: "Sesión de ejemplo",
@@ -72,6 +78,9 @@ export const problem = {
   ],
   matrixCaption:
     "De cada 100 consultas a la guardia, 85 podían resolverse en otro nivel de atención. La pregunta no es cómo frenarlas, sino cómo orientarlas mejor.",
+  sourceLabel: "ADECRA+CEDIM · Comisión de Directores Médicos (2024)",
+  sourceUrl:
+    "https://comunicacion.adecra.org.ar/wp-content/uploads/2024/10/Cuadernillo-DM-IV-confecha.pdf",
   matrixLegendHigh: "No urgente",
   matrixLegendLow: "Urgencia real",
 };
@@ -90,7 +99,7 @@ export const steps = {
     },
     {
       title: "Pregunta poco, y con motivo",
-      body: "Entre seis y siete intercambios, en lenguaje cotidiano. Cada pregunta está ahí porque su respuesta cambia la decisión; si no la cambia, no se hace.",
+      body: "La cantidad de intercambios mínima necesaria, en lenguaje cotidiano. Cada pregunta está ahí porque su respuesta cambia la decisión; si no la cambia, no se hace.",
     },
     {
       title: "Termina con el próximo paso resuelto",
@@ -137,7 +146,7 @@ export const engine = {
   headline: "Detrás de cada respuesta hay un protocolo.",
   items: [
     {
-      title: "Protocolos Schmitt-Thompson, codificados uno por uno",
+      title: "Protocolos de recomendación, clínicamente validados",
       body: "Contenido clínico licenciado, codificado a mano y revisado por profesionales matriculados. Ninguna recomendación se genera al vuelo.",
     },
     {
@@ -186,6 +195,13 @@ export const product = {
   ],
 };
 
+/**
+ * SECCIÓN REGULATORIA — DESACTIVADA POR AHORA.
+ * El contenido queda acá listo para volver a publicarse cuando decidamos
+ * comunicar el estado regulatorio (p. ej. al cerrar la consulta previa ANMAT).
+ * Para reactivar: descomentar <Regulatory /> en src/App.tsx, volver a agregar
+ * el link "Regulatorio" en `nav.links` y revisar los textos y fechas de abajo.
+ */
 export const regulatory = {
   eyebrow: "Regulatorio",
   headline: "Un producto médico, con todo lo que eso implica.",
@@ -223,8 +239,30 @@ export const regulatory = {
 export const cta = {
   headline: "Hagamos el número con tu cartera.",
   sub: "Contanos cuántos afiliados cubrís y armamos juntos la proyección de guardias evitables con tus propios datos. Sin compromiso y sin integración previa.",
-  button: "Conversemos",
   alt: "O escribinos a",
+  booking: {
+    title: "Agendá una llamada",
+    body: "Treinta minutos con el equipo, en el horario que te quede cómodo.",
+    button: "Ver disponibilidad",
+  },
+  form: {
+    title: "O contanos por acá",
+    button: "Enviar consulta",
+    sending: "Enviando…",
+    okTitle: "Recibido.",
+    okBody: "Te respondemos dentro de las próximas 24 horas hábiles.",
+    errorBody:
+      "No pudimos enviar el mensaje. Escribinos directamente a {email} y lo resolvemos.",
+    mailtoNote: "Se va a abrir tu cliente de correo con el mensaje ya armado.",
+    fields: {
+      name: "Nombre y apellido",
+      org: "Financiador / empresa",
+      email: "Email de trabajo",
+      members: "Cantidad de afiliados (aprox.)",
+      message: "¿Qué te gustaría ver?",
+    },
+    required: "Completá nombre, email y mensaje.",
+  },
 };
 
 export const footer = {

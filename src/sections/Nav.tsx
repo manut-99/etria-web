@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { mailto, nav } from "../content";
+import { nav } from "../content";
 import { Logo } from "../components/Logo";
 
 export function Nav() {
@@ -38,7 +38,7 @@ export function Nav() {
         </div>
 
         <a
-          href={mailto("Demo de Etria")}
+          href="#contacto"
           className="rounded-full bg-ember px-4 py-2 text-[0.88rem] font-semibold text-white transition-transform hover:-translate-y-px hover:bg-[#ff7d45]"
         >
           {nav.cta}

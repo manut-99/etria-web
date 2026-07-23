@@ -70,14 +70,46 @@ white-label para un cliente se resuelve cambiando cinco variables.
 
 ---
 
+## Contacto: las dos vías
+
+La sección `#contacto` ofrece dos caminos en paralelo:
+
+1. **Agendar una llamada** → abre `site.bookingUrl` (Google Calendar).
+2. **Formulario** → manda los datos a `info@etriahealth.com`.
+
+Ambos botones del sitio ("Pedir una demo" en el nav y en el hero) llevan a esa
+sección, así que quien prefiere agenda y quien prefiere escribir encuentran lo
+suyo en el mismo lugar.
+
+### Configurar la agenda
+
+En Google Calendar: **Crear → Horario de citas**, publicá la página y pegá el
+link en `site.bookingUrl` (`src/content.ts`).
+
+### Configurar el formulario
+
+Por defecto `site.formEndpoint` está vacío: el formulario arma el mensaje y abre
+el cliente de correo del visitante con todo cargado. Funciona sin backend, pero
+depende de que la persona tenga mail configurado.
+
+Para recibir los mensajes por HTTP, creá un formulario en
+[Formspree](https://formspree.io) o [Web3Forms](https://web3forms.com) (ambos
+tienen plan gratuito), apuntá el destino a `info@etriahealth.com` y pegá el
+endpoint en `site.formEndpoint`. No hay que tocar nada más.
+
+## Sección regulatoria (desactivada)
+
+Está escrita y lista, pero fuera del sitio por ahora. Vive en
+`src/sections/Regulatory.tsx` y `src/content.ts` (`regulatory`). Las
+instrucciones para reactivarla están comentadas arriba de todo en `src/App.tsx`.
+
 ## Pendientes antes de publicar
 
-- [ ] Reemplazar `contactEmail` en `src/content.ts` (hoy: `hola@etria.health`)
-- [ ] Confirmar la cita de la estadística de ADECRA+CEDIM (link a la fuente)
-- [ ] Revisión legal del disclaimer del footer y del aviso regulatorio
+- [ ] Pegar el link real de Google Calendar en `site.bookingUrl`
+- [ ] Decidir si el formulario usa `mailto` o un endpoint (ver arriba)
 - [ ] Imagen `og:image` (1200×630) y agregarla en `index.html`
-- [ ] Decidir si el formulario de contacto reemplaza al `mailto:`
-- [ ] Validar con Legales que el ejemplo de sesión del hero no se lea como consejo médico
+- [ ] Revisión legal del disclaimer del footer
+- [ ] Validar con un revisor clínico el ejemplo de sesión del hero
 
 ## Aviso
 

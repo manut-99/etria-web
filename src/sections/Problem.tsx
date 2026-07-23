@@ -23,6 +23,14 @@ export function Problem() {
           <p className="mt-7 max-w-sm border-l-2 border-ember pl-4 text-[0.98rem] leading-snug text-ink/75">
             {problem.matrixCaption}
           </p>
+          <a
+            href={problem.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-block font-mono text-[0.72rem] text-mid underline decoration-mid/30 underline-offset-4 transition-colors hover:decoration-mid"
+          >
+            Fuente: {problem.sourceLabel} ↗
+          </a>
         </Reveal>
       </div>
     </section>

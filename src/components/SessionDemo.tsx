@@ -141,6 +141,13 @@ export function SessionDemo() {
                 ))}
               </span>
             )}
+
+            {visible < demoScript.length && (
+              <div
+                aria-hidden="true"
+                className="mt-auto h-[11.5rem] rounded-2xl border border-mid/12 bg-[linear-gradient(160deg,#f4f7fc,#e8effb)] opacity-55"
+              />
+            )}
           </div>
         </div>
       </div>
