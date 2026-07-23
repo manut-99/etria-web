@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-[linear-gradient(168deg,#061635_0%,#0a2450_55%,#0b2a5b_100%)] pt-28 pb-20 sm:pt-32 lg:pb-28"
+      className="relative flex min-h-svh items-center overflow-hidden bg-[linear-gradient(168deg,#061635_0%,#0a2450_55%,#0b2a5b_100%)] pt-28 pb-20 sm:pt-32 lg:pb-24"
     >
       <div
         aria-hidden="true"
@@ -16,7 +16,7 @@ export function Hero() {
         className="absolute -top-32 left-1/2 h-96 w-[46rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(30,79,163,0.55),transparent)]"
       />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div>
           <h1
             className="rise text-[2.7rem] text-white sm:text-[3.6rem] lg:text-[4rem]"
