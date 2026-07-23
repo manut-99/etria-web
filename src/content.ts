@@ -28,8 +28,8 @@ export const nav = {
 
 export const hero = {
   eyebrow: "Software como producto médico · Consulta previa ANMAT en curso",
-  headline: ["Cada síntoma tiene", "un nivel de atención", "correcto."],
-  sub: "Etria es un motor de triage clínico que se integra en la app de tu prepaga u obra social. Orienta al afiliado hacia la guardia, la teleconsulta o el cuidado en casa en menos de dos minutos, con protocolos revisados y trazables.",
+  headline: ["Nadie debería", "tener que adivinar", "si ir a la guardia."],
+  sub: "Etria acompaña al afiliado desde la app de su cobertura. Le pregunta lo justo, entiende qué le está pasando y lo orienta hacia la guardia, una teleconsulta o el cuidado en casa. Detrás de cada respuesta hay un protocolo clínico revisado por médicos.",
   ctaPrimary: "Pedir una demo",
   ctaSecondary: "Ver cómo funciona",
   demoLabel: "Sesión de ejemplo",
@@ -65,13 +65,13 @@ export const demoScript: Array<
 
 export const problem = {
   eyebrow: "El problema",
-  headline: "La guardia se convirtió en la puerta de entrada al sistema.",
+  headline: "Cuando algo duele, la guardia es el primer reflejo.",
   body: [
-    "Sobre un relevamiento de más de un millón de consultas de ADECRA+CEDIM y su Comisión de Directores Médicos, el 84,5% de las consultas de guardia no correspondían a una urgencia.",
-    "El costo lo absorbe el financiador. La espera la pagan los afiliados que sí necesitaban atención inmediata.",
+    "Es una reacción entendible: ante la duda, uno va donde sabe que lo van a atender. Pero sobre un relevamiento de más de un millón de consultas de ADECRA+CEDIM y su Comisión de Directores Médicos, el 84,5% de las consultas de guardia no correspondían a una urgencia.",
+    "El costo lo absorbe el financiador. La espera la comparten todos, incluida la persona que sí necesitaba atención inmediata.",
   ],
   matrixCaption:
-    "De cada 100 consultas a la guardia, 85 podían resolverse en otro nivel de atención.",
+    "De cada 100 consultas a la guardia, 85 podían resolverse en otro nivel de atención. La pregunta no es cómo frenarlas, sino cómo orientarlas mejor.",
   matrixLegendHigh: "No urgente",
   matrixLegendLow: "Urgencia real",
 };
@@ -81,28 +81,28 @@ export const steps = {
   headline: "Una sesión, cuatro momentos.",
   items: [
     {
-      title: "Entra desde la app que ya usa",
-      body: "Etria se abre dentro de la app de la cobertura. Sin descargar nada nuevo, sin otra contraseña, sin salir de la marca del financiador.",
+      title: "Empieza donde ya está",
+      body: "Etria se abre dentro de la app de la cobertura. Sin descargar nada nuevo, sin otra contraseña y sin salir de la marca que el afiliado reconoce.",
     },
     {
-      title: "Descartamos banderas rojas primero",
-      body: "Toda sesión arranca con un tamizaje universal de emergencia. Si aparece una señal crítica, la conversación se interrumpe y deriva a emergencias en el acto.",
+      title: "Lo urgente se descarta primero",
+      body: "Toda sesión arranca con un tamizaje universal de emergencia. Si aparece una señal crítica, la conversación se corta ahí mismo y deriva a emergencias.",
     },
     {
-      title: "Pregunta lo mínimo necesario",
-      body: "Entre seis y siete intercambios. Cada pregunta existe porque su respuesta cambia la decisión: si no la cambia, no se pregunta.",
+      title: "Pregunta poco, y con motivo",
+      body: "Entre seis y siete intercambios, en lenguaje cotidiano. Cada pregunta está ahí porque su respuesta cambia la decisión; si no la cambia, no se hace.",
     },
     {
-      title: "Deriva con el próximo paso resuelto",
-      body: "No termina en un consejo. Termina en un turno de teleconsulta, una guardia sugerida con tiempo de espera estimado, o pautas de cuidado con señales de alarma explícitas.",
+      title: "Termina con el próximo paso resuelto",
+      body: "No deja a la persona con un consejo suelto: le deja un turno de teleconsulta, una guardia sugerida con su espera estimada, o pautas de cuidado con señales de alarma claras para volver a consultar.",
     },
   ],
 };
 
 export const scale = {
   eyebrow: "La escala",
-  headline: "Cinco destinos, una sola decisión.",
-  sub: "El naranja y el azul de Etria no son decoración: son los extremos de la escala de agudeza. Todo lo que hace el producto es ubicar a la persona en el punto justo entre uno y otro.",
+  headline: "Cinco caminos posibles, una sola decisión.",
+  sub: "El naranja y el azul de Etria no son decoración: son los dos extremos de la escala de agudeza. Todo lo que hace el producto es encontrar el punto justo entre uno y otro para cada persona que consulta.",
   levels: [
     {
       name: "Emergencia",
@@ -134,34 +134,34 @@ export const scale = {
 
 export const engine = {
   eyebrow: "Motor clínico",
-  headline: "El criterio clínico no lo improvisa un modelo.",
+  headline: "Detrás de cada respuesta hay un protocolo.",
   items: [
     {
       title: "Protocolos Schmitt-Thompson, codificados uno por uno",
-      body: "Contenido clínico licenciado y codificado manualmente, con revisión y firma de profesionales matriculados. Nada se genera al vuelo.",
+      body: "Contenido clínico licenciado, codificado a mano y revisado por profesionales matriculados. Ninguna recomendación se genera al vuelo.",
     },
     {
-      title: "Preguntar y decidir son dos fases separadas",
-      body: "Una fase releva hallazgos con lenguaje natural. Otra evalúa la escala de arriba hacia abajo con lógica explícita de banderas. La decisión nunca queda del lado del lenguaje.",
+      title: "Preguntar y decidir son dos cosas distintas",
+      body: "Una fase conversa y releva hallazgos. Otra recorre la escala de arriba hacia abajo con lógica explícita de banderas. La conversación puede ser natural justamente porque la decisión no depende de ella.",
     },
     {
       title: "Trazable pregunta por pregunta",
-      body: "Cada sesión deja registro de qué se preguntó, qué se respondió y qué regla disparó la derivación. Auditable caso por caso.",
+      body: "Cada sesión deja registro de qué se preguntó, qué se respondió y qué regla disparó la derivación. Si hay que revisar un caso, está todo ahí.",
     },
     {
-      title: "Sesgo explícito a la seguridad",
-      body: "Ante ambigüedad, el sistema escala. Preferimos una guardia de más antes que una emergencia de menos, y lo medimos.",
+      title: "Ante la duda, escalamos",
+      body: "Cuando la información es ambigua, el sistema sube de nivel. Preferimos una guardia de más antes que una emergencia de menos, y medimos cuánto nos cuesta esa decisión.",
     },
   ],
 };
 
 export const product = {
   eyebrow: "Para el financiador",
-  headline: "Se embebe en tu app. No la reemplaza.",
+  headline: "Vive dentro de tu app, con tu marca.",
   items: [
     {
       title: "Integración liviana",
-      body: "Una vista embebida y un token de sesión. Tu equipo de ingeniería no toca lógica clínica ni asume mantenimiento del motor.",
+      body: "Una vista embebida y un token de sesión. Tu equipo de ingeniería no toca lógica clínica ni queda a cargo de mantener el motor.",
     },
     {
       title: "Actualizaciones sin ciclo de release",
@@ -169,14 +169,14 @@ export const product = {
     },
     {
       title: "White-label desde el primer día",
-      body: "Tipografías, colores y tono configurables por cliente. Para el afiliado, sigue siendo la app de su cobertura.",
+      body: "Tipografías, colores y tono se configuran por cliente. Para el afiliado, sigue siendo la app de su cobertura de siempre.",
     },
     {
       title: "Panel de derivación",
       body: "Sesiones, distribución por nivel de atención, banderas rojas detectadas y consultas de guardia evitadas, con corte por cartera.",
     },
     {
-      title: "Espera de guardia en tiempo real",
+      title: "Espera de guardia, estimada",
       body: "Arrancamos con estimación histórica por prestador y avanzamos hacia datos directos a medida que se habilitan las integraciones.",
     },
     {
@@ -188,13 +188,13 @@ export const product = {
 
 export const regulatory = {
   eyebrow: "Regulatorio",
-  headline: "Construido para pasar una auditoría, no para esquivarla.",
-  sub: "Etria se desarrolla como producto médico de software desde el primer commit. El marco no se agrega al final: define la arquitectura.",
+  headline: "Un producto médico, con todo lo que eso implica.",
+  sub: "Etria se desarrolla bajo marco regulatorio desde el primer día. No es documentación que se suma al final para cerrar un trámite: es lo que define cómo está construido el producto.",
   items: [
     {
       code: "ANMAT",
       title: "Clase III · Disp. 9688/19 y 64/2025",
-      body: "Consulta previa en curso. El fin previsto contempla vías de derivación a emergencia, lo que fija la clasificación.",
+      body: "Consulta previa en curso. El fin previsto contempla vías de derivación a emergencia, y eso es lo que determina la clasificación.",
     },
     {
       code: "IEC 62304",
@@ -209,7 +209,7 @@ export const regulatory = {
     {
       code: "IEC 62366-1",
       title: "Ingeniería de usabilidad",
-      body: "Validación de que el afiliado entiende la derivación y las señales de alarma.",
+      body: "Validamos que la persona entienda la derivación y las señales de alarma. Si no se entiende, no sirve.",
     },
     {
       code: "ISO 13485",
@@ -221,13 +221,14 @@ export const regulatory = {
 };
 
 export const cta = {
-  headline: "¿Cuántas guardias evitables tiene tu cartera este año?",
-  sub: "Contanos cuántos afiliados cubrís y armamos la proyección con tus propios números. Sin compromiso y sin integración previa.",
-  button: "Escribinos",
-  alt: "O escribinos directamente a",
+  headline: "Hagamos el número con tu cartera.",
+  sub: "Contanos cuántos afiliados cubrís y armamos juntos la proyección de guardias evitables con tus propios datos. Sin compromiso y sin integración previa.",
+  button: "Conversemos",
+  alt: "O escribinos a",
 };
 
 export const footer = {
+  brandLine: "Etria desarrolla tecnología clínica para el sistema de salud argentino.",
   disclaimer:
     "Etria es un software de orientación clínica. No realiza diagnósticos, no prescribe y no reemplaza la consulta con un profesional de la salud. Ante una emergencia, comunicate con el {emergency}.",
   rights: "Todos los derechos reservados.",
