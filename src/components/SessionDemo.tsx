@@ -67,7 +67,7 @@ export function SessionDemo() {
 
           {/* Conversación */}
           <div
-            className="flex min-h-[26rem] flex-col gap-3 px-4 py-5 sm:min-h-[27rem]"
+            className="flex h-[30rem] flex-col justify-end gap-3 overflow-hidden px-4 py-5 sm:h-[31rem]"
             aria-hidden="true"
           >
             {demoScript.slice(0, visible).map((m, i) => {
@@ -101,7 +101,7 @@ export function SessionDemo() {
               return (
                 <div
                   key={i}
-                  className="pop mt-auto rounded-2xl border border-mid/20 bg-[linear-gradient(160deg,#f4f7fc,#e6eefb)] p-4"
+                  className="pop rounded-2xl border border-mid/20 bg-[linear-gradient(160deg,#f4f7fc,#e6eefb)] p-4"
                 >
                   <span className="eyebrow text-mid">Derivación</span>
                   <p
@@ -140,13 +140,6 @@ export function SessionDemo() {
                   />
                 ))}
               </span>
-            )}
-
-            {visible < demoScript.length && (
-              <div
-                aria-hidden="true"
-                className="mt-auto h-[11.5rem] rounded-2xl border border-mid/12 bg-[linear-gradient(160deg,#f4f7fc,#e8effb)] opacity-55"
-              />
             )}
           </div>
         </div>

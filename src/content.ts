@@ -6,8 +6,7 @@
 export const site = {
   brand: "Etria",
   contactEmail: "info@etriahealth.com",
-  /** TODO: pegar el link publico de Google Calendar (Appointment schedule). */
-  bookingUrl: "https://calendar.app.google/REEMPLAZAR",
+  bookingUrl: "https://calendar.app.google/BSyzQfLmfZ3xyqCr9",
   emergencyNumber: "107",
   /**
    * Vacío = el formulario abre el cliente de correo del visitante (mailto).
