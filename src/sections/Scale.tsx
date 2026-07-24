@@ -25,8 +25,8 @@ export function Scale() {
             {scale.levels.map((l, i) => (
               <li key={l.name}>
                 <Reveal delay={i * 80}>
-                  <div className="grid gap-2 border-b border-deep/12 py-6 sm:grid-cols-[13rem_1fr] sm:items-baseline sm:gap-8">
-                    <div className="flex items-baseline gap-3">
+                  <div className="grid gap-2 border-b border-deep/12 py-6 sm:grid-cols-[0.875rem_13.5rem_6rem_1fr] sm:items-baseline sm:gap-x-3">
+                    <div className="flex items-baseline gap-3 sm:contents">
                       <span
                         className="h-2.5 w-2.5 shrink-0 translate-y-[-1px] rounded-full"
                         style={{ background: DOT[i] }}
@@ -41,7 +41,7 @@ export function Scale() {
                         {l.time}
                       </span>
                     </div>
-                    <p className="text-[0.98rem] leading-relaxed text-ink/65">
+                    <p className="text-[0.98rem] leading-relaxed text-ink/65 sm:pl-5">
                       {l.body}
                     </p>
                   </div>

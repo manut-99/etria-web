@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { demoScript, hero } from "../content";
 import { LogoMark } from "./Logo";
 
-const STEP_MS = [1600, 2100, 1200, 2100, 1200, 2400];
+const STEP_MS = [1700, 2600, 2200, 2600, 2400];
 
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -48,11 +48,12 @@ export function SessionDemo() {
         className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-[radial-gradient(60%_50%_at_50%_30%,rgba(255,107,44,0.22),transparent_70%)] blur-xl"
       />
       <p className="sr-only">
-        {hero.demoLabel}: una persona consulta por dolor de cabeza, Etria descarta
-        banderas rojas con dos preguntas de seguridad y deriva a una teleconsulta
-        en el día. {hero.demoDisclaimer}
+        {hero.demoLabel}: una persona consulta por dolor abdominal, Etria descarta
+        banderas rojas con preguntas sobre intensidad, palpación, fiebre y
+        vómitos, y deriva a una teleconsulta en el día.{" "}
+        {hero.demoDisclaimer}
       </p>
-      <div className="overflow-hidden rounded-[1.75rem] border border-white/12 bg-white/[0.045] p-2 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.75)] backdrop-blur-sm">
+      <div className="overflow-hidden rounded-[1.75rem] border border-white/12 bg-white/[0.045] p-2 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.75)]">
         <div className="rounded-[1.4rem] bg-white">
           {/* Barra de la app del financiador */}
           <div className="flex items-center justify-between border-b border-mist px-4 py-3">

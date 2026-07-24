@@ -4,9 +4,29 @@ import { problem } from "../content";
 const TOTAL = 100;
 const NON_URGENT = 85;
 
-export function DotMatrix() {
+/** Sólo cursores de precisión (mouse/trackpad): en touch no hay "hover" que abra un caso. */
+function useFinePointer() {
+  const [fine, setFine] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(pointer: fine)");
+    setFine(mq.matches);
+    const onChange = () => setFine(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return fine;
+}
+
+export type PatientStory = { level: "nonUrgent" | "urgent"; text: string };
+
+export function DotMatrix({
+  onSelect,
+}: {
+  onSelect?: (story: PatientStory | null) => void;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [on, setOn] = useState(false);
+  const finePointer = useFinePointer();
 
   useEffect(() => {
     const el = ref.current;
@@ -30,13 +50,27 @@ export function DotMatrix() {
         className="grid grid-cols-[repeat(10,minmax(0,1fr))] gap-[6px] sm:grid-cols-[repeat(20,minmax(0,1fr))] sm:gap-2"
         role="img"
         aria-label={problem.matrixCaption}
+        onMouseLeave={finePointer ? () => onSelect?.(null) : undefined}
       >
         {Array.from({ length: TOTAL }, (_, i) => {
           const nonUrgent = i < NON_URGENT;
+          const handleEnter = finePointer
+            ? () => {
+                const list = nonUrgent
+                  ? problem.stories.nonUrgent
+                  : problem.stories.urgent;
+                const idx = nonUrgent ? i : i - NON_URGENT;
+                onSelect?.({
+                  level: nonUrgent ? "nonUrgent" : "urgent",
+                  text: list[idx % list.length],
+                });
+              }
+            : undefined;
           return (
             <span
               key={i}
-              className="aspect-square rounded-[3px] transition-all duration-500 ease-out"
+              onMouseEnter={handleEnter}
+              className={`aspect-square rounded-[3px] transition-all duration-500 ease-out ${finePointer ? "cursor-pointer hover:brightness-110" : ""}`}
               style={{
                 background: nonUrgent ? "var(--color-ember)" : "var(--color-deep)",
                 opacity: on ? (nonUrgent ? 0.92 : 1) : 0.1,

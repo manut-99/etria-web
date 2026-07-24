@@ -1,9 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#061635"/>
+  <style>
+    .bar3 { fill: #6F8FD0; }
+    .bar4 { fill: #1E4FA3; }
+    .bar5 { fill: #0B2A5B; }
+    @media (prefers-color-scheme: dark) {
+      .bar3 { fill: #A9C6F7; }
+      .bar4 { fill: #6F8FD0; }
+      .bar5 { fill: #3F6EC4; }
+    }
+  </style>
   <g>
     <rect x="5" y="9"  width="3.2" height="14" rx="1.6" fill="#FF6B2C"/>
     <rect x="10.4" y="12" width="3.2" height="11" rx="1.6" fill="#FFA23A"/>
-    <rect x="15.8" y="15" width="3.2" height="8"  rx="1.6" fill="#6F8FD0"/>
-    <rect x="21.2" y="18" width="3.2" height="5"  rx="1.6" fill="#8FB8F5"/>
+    <rect x="15.8" y="15" width="3.2" height="8"  rx="1.6" class="bar3"/>
+    <rect x="21.2" y="18" width="3.2" height="5"  rx="1.6" class="bar4"/>
+    <rect x="26.6" y="21" width="3.2" height="2"  rx="1"   class="bar5"/>
   </g>
 </svg>

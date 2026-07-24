@@ -6,7 +6,7 @@
 export const site = {
   brand: "Etria",
   contactEmail: "info@etriahealth.com",
-  bookingUrl: "https://calendar.app.google/BSyzQfLmfZ3xyqCr9",
+  bookingUrl: "https://calendar.app.google/NSBTSUABvMsnJug76",
   emergencyNumber: "107",
   /**
    * Endpoint propio (api/contact.ts): manda el mail por Resend y crea la
@@ -48,17 +48,22 @@ export const demoScript: Array<
   | { kind: "answer"; text: string }
   | { kind: "result"; level: string; text: string; detail: string }
 > = [
-  { kind: "user", text: "Me duele mucho la cabeza desde ayer a la noche." },
+  {
+    kind: "user",
+    text: "Hola, me duele la panza desde hace una hora y media. Sin parar.",
+  },
   {
     kind: "bot",
-    text: "Antes que nada, una pregunta de seguridad: ¿el dolor apareció de golpe y es el peor que sentiste en tu vida?",
+    text: "Hola. ¿El dolor es leve o moderado? ¿Te duele al tocarte el abdomen? ¿Tenés fiebre o vómitos?",
   },
-  { kind: "answer", text: "No" },
+  {
+    kind: "user",
+    text: "Es un dolor moderado. No, no me duele al tocarme y no tengo fiebre ni vomité.",
+  },
   {
     kind: "bot",
-    text: "¿Tenés fiebre, rigidez en el cuello, confusión o dificultad para hablar?",
+    text: "En base a lo que me contaste deberías hablar con un médico por teleconsulta. Si el dolor empeora, se vuelve punzante o aparecen nuevos síntomas como fiebre o vómitos, acudí a la guardia.",
   },
-  { kind: "answer", text: "No, solo el dolor" },
   {
     kind: "result",
     level: "Teleconsulta",
@@ -81,6 +86,24 @@ export const problem = {
     "https://comunicacion.adecra.org.ar/wp-content/uploads/2024/10/Cuadernillo-DM-IV-confecha.pdf",
   matrixLegendHigh: "No urgente",
   matrixLegendLow: "Urgencia real",
+  storyDisclaimer: "Ejemplo ilustrativo. No corresponde a una persona real.",
+  stories: {
+    nonUrgent: [
+      "Resfrío con tos hace tres días, sin fiebre. Se fue con pautas de cuidado en casa.",
+      "Dolor lumbar leve después de mover muebles el fin de semana. Analgésicos y reposo.",
+      "Mancha en la piel, sin picazón ni fiebre. Derivación a dermatología por turno programado.",
+      "Dolor de cabeza tensional, sin señales de alarma. Se resolvió con una teleconsulta esa misma tarde.",
+      "Fiebre baja y dolor de garganta. Faringitis viral, seguida por teleconsulta.",
+      "Torcedura de tobillo caminando, sin deformidad ni imposibilidad de apoyar. Hielo y reposo.",
+    ],
+    urgent: [
+      "Dolor torácico opresivo que se irradia al brazo. Ingresó directo a shockroom por sospecha de infarto.",
+      "Caída con golpe en la cabeza y pérdida de conciencia breve. Tomografía y observación inmediata.",
+      "Dificultad para respirar y labios azulados en un bebé de 8 meses. Derivación inmediata a emergencias.",
+      "Fractura expuesta tras un accidente en bicicleta. Atención quirúrgica de urgencia.",
+      "Dolor abdominal intenso y súbito, con el abdomen en tabla. Sospecha de apendicitis, cirugía de urgencia.",
+    ],
+  },
 };
 
 export const steps = {
@@ -145,7 +168,7 @@ export const engine = {
   items: [
     {
       title: "Protocolos de recomendación, clínicamente validados",
-      body: "Contenido clínico licenciado, codificado a mano y revisado por profesionales matriculados. Ninguna recomendación se genera al vuelo.",
+      body: "Contenido clínico licenciado, revisado por profesionales matriculados y certificado. Decisiones basadas en datos recolectados por años, no probabilidades de palabras.",
     },
     {
       title: "Preguntar y decidir son dos cosas distintas",
