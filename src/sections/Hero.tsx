@@ -18,8 +18,13 @@ export function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div>
+          <span className="rise inline-flex items-center gap-2 rounded-full border border-amber/40 bg-ember/10 px-3.5 py-1.5 font-mono text-[0.7rem] tracking-[0.11em] text-amber uppercase">
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-ember" />
+            {hero.kicker}
+          </span>
+
           <h1
-            className="rise text-[2.7rem] text-white sm:text-[3.6rem] lg:text-[4rem]"
+            className="rise mt-6 text-[2.7rem] text-white sm:text-[3.6rem] lg:text-[4rem]"
             style={{ animationDelay: "80ms", fontWeight: 600 }}
           >
             {hero.headline[0]}

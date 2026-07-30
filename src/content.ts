@@ -1,12 +1,24 @@
 /**
  * Toda la redacción del sitio vive acá.
  * Editá este archivo para cambiar copy sin tocar componentes.
+ *
+ * REGISTRO DE VOZ — el sitio habla en tercera persona e impersonal.
+ * Nada en primera persona ("preferimos", "arrancamos", "validamos") ni en
+ * segunda ("tu app", "contanos", "podés"): se usa "Etria", "el sistema",
+ * "el financiador", "la cobertura", o la forma impersonal con "se"
+ * ("se define", "se publica", "se mide").
+ *
+ * Única excepción: `demoScript`. Es un diálogo entre una persona y el
+ * asistente, así que el trato de segunda persona ahí es correcto.
+ *
+ * REGISTRO DE ETAPA — la capa clínica (steps, scale, engine) se afirma en
+ * presente porque ya está decidida. La capa comercial (product, partner,
+ * cta) se enuncia como alcance a definir con cada cliente. Ver `partner`.
  */
 
 export const site = {
   brand: "Etria",
   contactEmail: "info@etriahealth.com",
-  bookingUrl: "https://calendar.app.google/NSBTSUABvMsnJug76",
   emergencyNumber: "107",
   /**
    * Endpoint propio (api/contact.ts): manda el mail por Resend y crea la
@@ -27,21 +39,26 @@ export const nav = {
     { label: "Cómo funciona", href: "#como-funciona" },
     { label: "Motor clínico", href: "#motor" },
     { label: "Para el financiador", href: "#producto" },
+    { label: "Cómo entramos", href: "#programa" },
   ],
-  cta: "Pedir una demo",
+  cta: "Contactar",
 };
 
 export const hero = {
+  kicker: "Programa de primeros socios · 2026",
   headline: ["Nadie debería", "tener que adivinar", "si ir a la guardia."],
   sub: "Etria acompaña al afiliado desde la app de su cobertura: entiende lo que le está pasando y lo orienta hacia la atención médica que necesita.",
-  ctaPrimary: "Pedir una demo",
+  ctaPrimary: "Contactar",
   ctaSecondary: "Ver cómo funciona",
   demoLabel: "Sesión de ejemplo",
   demoDisclaimer:
     "Reproducción ilustrativa. No es una herramienta de diagnóstico ni una sesión real.",
 };
 
-/** Guion de la sesión que se reproduce en el hero. */
+/**
+ * Guion de la sesión que se reproduce en el hero.
+ * Excepción al registro impersonal: acá el asistente le habla a la persona.
+ */
 export const demoScript: Array<
   | { kind: "user"; text: string }
   | { kind: "bot"; text: string }
@@ -124,7 +141,7 @@ export const steps = {
     },
     {
       title: "Termina con el próximo paso resuelto",
-      body: "No deja a la persona con un consejo suelto: le deja un turno de teleconsulta, una guardia sugerida con su espera estimada, o pautas de cuidado con señales de alarma claras para volver a consultar.",
+      body: "No deja a la persona con un consejo suelto: le muestra posibles turnos de teleconsulta, una guardia sugerida con su espera estimada, o pautas de cuidado con señales de alarma claras para volver a consultar.",
     },
   ],
 };
@@ -179,23 +196,23 @@ export const engine = {
       body: "Cada sesión deja registro de qué se preguntó, qué se respondió y qué regla disparó la derivación. Si hay que revisar un caso, está todo ahí.",
     },
     {
-      title: "Ante la duda, escalamos",
-      body: "Cuando la información es ambigua, el sistema sube de nivel. Preferimos una guardia de más antes que una emergencia de menos, y medimos cuánto nos cuesta esa decisión.",
+      title: "Ante la duda, el sistema escala",
+      body: "Cuando la información es ambigua, el sistema sube de nivel. Antes una guardia de más que una emergencia de menos, y el costo de esa preferencia se mide.",
     },
   ],
 };
 
 export const product = {
   eyebrow: "Para el financiador",
-  headline: "Vive dentro de tu app, con tu marca.",
+  headline: "Vive dentro de la app de la cobertura, con su marca.",
   items: [
     {
       title: "Integración liviana",
-      body: "Una vista embebida y un token de sesión. Tu equipo de ingeniería no toca lógica clínica ni queda a cargo de mantener el motor.",
+      body: "Una vista embebida y un token de sesión. El equipo de ingeniería del financiador no toca lógica clínica ni queda a cargo de mantener el motor.",
     },
     {
-      title: "Actualizaciones sin ciclo de release",
-      body: "Los protocolos y las mejoras se publican del lado de Etria. No dependen de que tu app pase por las tiendas.",
+      title: "Actualizaciones sin esfuerzo",
+      body: "Los protocolos clínicos y las mejoras del sistema se publican del lado de Etria. No hay trabajo del lado del financiador.",
     },
     {
       title: "White-label desde el primer día",
@@ -203,17 +220,53 @@ export const product = {
     },
     {
       title: "Panel de derivación",
-      body: "Sesiones, distribución por nivel de atención, banderas rojas detectadas y consultas de guardia evitadas, con corte por cartera.",
+      body: "Sesiones, distribución por nivel de atención y banderas rojas detectadas, con corte por cartera. El resto de las métricas se define en la implementación, según lo que necesite cada comité médico.",
     },
     {
       title: "Espera de guardia, estimada",
-      body: "Arrancamos con estimación histórica por prestador y avanzamos hacia datos directos a medida que se habilitan las integraciones.",
+      body: "Se arranca con estimación histórica por prestador y se avanza hacia datos directos a medida que se habilitan las integraciones.",
     },
     {
       title: "Agenda y cartilla conectadas",
-      body: "La derivación termina en un turno concreto dentro de la red del financiador, no en una recomendación suelta.",
+      body: "La derivación termina en un turno concreto, no en una recomendación suelta. Primero los circuitos ya integrados, y el resto se suma por fases.",
     },
   ],
+};
+
+/**
+ * SECCIÓN "CÓMO ENTRAMOS" — posicionamiento de etapa.
+ * Separa lo que ya está cerrado (capa clínica) de lo que se define con cada
+ * cliente (capa comercial). El objetivo es mostrar que hay margen de
+ * co-diseño sin que el producto parezca inacabado: la columna izquierda
+ * prueba que el motor existe, la derecha convierte el margen en invitación.
+ * Léxico: co-diseño, piloto, alcance acotado, por fases. Nunca beta, MVP,
+ * prototipo, próximamente ni "en construcción".
+ */
+export const partner = {
+  eyebrow: "Cómo entramos",
+  headline: "El motor clínico está definido. La implementación se define en conjunto.",
+  sub: "Etria no se ofrece como una licencia cerrada. El producto se está ajustando junto a un grupo acotado de financiadores para que responda a cómo funciona de verdad una cartera: su cartilla, su agenda, sus tiempos de guardia, sus reglas de derivación.",
+  columns: [
+    {
+      title: "Lo que ya está resuelto",
+      items: [
+        "Los protocolos clínicos y la lógica de derivación.",
+        "El tamizaje de emergencia y las banderas rojas.",
+        "La sesión conversacional y el registro trazable.",
+        "El marco regulatorio y de calidad del desarrollo.",
+      ],
+    },
+    {
+      title: "Lo que se define en conjunto",
+      items: [
+        "Qué niveles de atención se habilitan y con qué reglas propias.",
+        "Cómo se conecta con la cartilla, la agenda y los prestadores de cada cobertura.",
+        "Qué métricas necesitan el comité médico y el área de costos.",
+        "Dónde arranca el piloto y cómo se mide antes de escalar.",
+      ],
+    },
+  ],
+  close: "Los primeros no eligen entre configuraciones: definen la que va a quedar.",
 };
 
 /**
@@ -246,7 +299,7 @@ export const regulatory = {
     {
       code: "IEC 62366-1",
       title: "Ingeniería de usabilidad",
-      body: "Validamos que la persona entienda la derivación y las señales de alarma. Si no se entiende, no sirve.",
+      body: "Se valida que la persona entienda la derivación y las señales de alarma. Si no se entiende, no sirve.",
     },
     {
       code: "ISO 13485",
@@ -258,39 +311,34 @@ export const regulatory = {
 };
 
 export const cta = {
-  headline: "Hagamos el número con tu cartera.",
-  sub: "Contanos cuántos afiliados cubrís y armamos juntos la proyección de guardias evitables con tus propios datos. Sin compromiso y sin integración previa.",
-  alt: "O escribinos a",
-  booking: {
-    title: "Agendá una llamada",
-    body: "Treinta minutos con el equipo, en el horario que te quede cómodo.",
-    button: "Ver disponibilidad",
-  },
+  headline: "Cuánto podría evitarse, con datos de la cartera real.",
+  sub: "A partir de la cantidad de afiliados cubiertos se arma la proyección de guardias evitables con datos propios de la cartera. Sin compromiso y sin integración previa. Si hay encaje, el alcance del primer piloto se define en conjunto.",
+  alt: "O por correo a",
   form: {
-    title: "O contanos por acá",
+    title: "Formulario de contacto",
     button: "Enviar consulta",
     sending: "Enviando…",
     okTitle: "Recibido.",
-    okBody: "Te respondemos dentro de las próximas 24 horas hábiles.",
+    okBody: "El equipo responde dentro de las próximas 24 horas hábiles.",
     errorBody:
-      "No pudimos enviar el mensaje. Escribinos directamente a {email} y lo resolvemos.",
-    mailtoNote: "Se va a abrir tu cliente de correo con el mensaje ya armado.",
+      "El mensaje no pudo enviarse. Queda disponible el correo directo a {email}.",
+    mailtoNote: "Se abre el cliente de correo con el mensaje ya armado.",
     fields: {
       name: "Nombre y apellido",
       org: "Financiador / empresa",
       email: "Email de trabajo",
       members: "Cantidad de afiliados (aprox.)",
-      message: "¿Qué te gustaría ver?",
+      message: "Motivo de la consulta",
     },
-    required: "Completá nombre, email y mensaje.",
+    required: "Nombre, email y mensaje son obligatorios.",
     privacy:
-      "Usamos estos datos solo para responderte. No los compartimos con terceros y podés pedirnos que los borremos cuando quieras.",
+      "Los datos se usan solo para responder la consulta. No se comparten con terceros y pueden borrarse a pedido.",
   },
 };
 
 export const footer = {
   brandLine: "Etria desarrolla tecnología clínica para el sistema de salud argentino.",
   disclaimer:
-    "Etria es un software de orientación clínica. No realiza diagnósticos, no prescribe y no reemplaza la consulta con un profesional de la salud. Ante una emergencia, comunicate con el {emergency}.",
+    "Etria es un software de orientación clínica. No realiza diagnósticos, no prescribe y no reemplaza la consulta con un profesional de la salud. Ante una emergencia, comunicarse con el {emergency}.",
   rights: "Todos los derechos reservados.",
 };

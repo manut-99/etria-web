@@ -70,21 +70,18 @@ white-label para un cliente se resuelve cambiando cinco variables.
 
 ---
 
-## Contacto: las dos vías
+## Contacto
 
-La sección `#contacto` ofrece dos caminos en paralelo:
+La sección `#contacto` tiene una sola vía: el **formulario**, que manda los
+datos a `info@etriahealth.com`. Al lado queda el mail directo, para quien
+prefiere escribir por su cuenta.
 
-1. **Agendar una llamada** → abre `site.bookingUrl` (Google Calendar).
-2. **Formulario** → manda los datos a `info@etriahealth.com`.
+Ambos botones del sitio ("Contactar" en el nav y en el hero) llevan a esa
+sección.
 
-Ambos botones del sitio ("Pedir una demo" en el nav y en el hero) llevan a esa
-sección, así que quien prefiere agenda y quien prefiere escribir encuentran lo
-suyo en el mismo lugar.
-
-### Configurar la agenda
-
-En Google Calendar: **Crear → Horario de citas**, publicá la página y pegá el
-link en `site.bookingUrl` (`src/content.ts`).
+> La agenda de Google Calendar se quitó a pedido. Si alguna vez vuelve, hay que
+> reponer `site.bookingUrl` y el bloque `cta.booking` en `src/content.ts`, más
+> la columna correspondiente en `src/sections/Contact.tsx`.
 
 ### Configurar el formulario
 
@@ -158,9 +155,21 @@ Está escrita y lista, pero fuera del sitio por ahora. Vive en
 `src/sections/Regulatory.tsx` y `src/content.ts` (`regulatory`). Las
 instrucciones para reactivarla están comentadas arriba de todo en `src/App.tsx`.
 
+## Registro de voz
+
+El copy va en tercera persona e impersonal: nada en primera persona
+("preferimos", "arrancamos") ni en segunda ("tu app", "contanos"). Se usa
+"Etria", "el sistema", "el financiador" o la forma con `se` ("se define", "se
+publica"). La única excepción es `demoScript`, que es un diálogo.
+
+La capa clínica (`steps`, `scale`, `engine`) se afirma en presente porque ya
+está decidida. La capa comercial (`product`, `partner`, `cta`) se enuncia como
+alcance a definir con cada cliente — ver la sección `#programa`. Léxico: sí a
+co-diseño, piloto, alcance acotado, por fases; no a beta, MVP, prototipo,
+próximamente, "en construcción".
+
 ## Pendientes antes de publicar
 
-- [ ] Pegar el link real de Google Calendar en `site.bookingUrl`
 - [ ] Verificar `etriahealth.com` en Resend y cargar las variables de entorno
 - [ ] Imagen `og:image` (1200×630) y agregarla en `index.html`
 - [ ] Revisión legal del disclaimer del footer
