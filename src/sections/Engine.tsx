@@ -3,7 +3,7 @@ import { Reveal } from "../components/Reveal";
 
 export function Engine() {
   return (
-    <section id="motor" className="bg-paper py-24 sm:py-32">
+    <section id="motor" className="py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
           <p className="eyebrow text-ember">{engine.eyebrow}</p>

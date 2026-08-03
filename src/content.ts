@@ -39,13 +39,22 @@ export const nav = {
     { label: "Cómo funciona", href: "#como-funciona" },
     { label: "Motor clínico", href: "#motor" },
     { label: "Para el financiador", href: "#producto" },
-    { label: "Cómo entramos", href: "#programa" },
+    { label: "Implementación", href: "#programa" },
   ],
   cta: "Contactar",
 };
 
+/**
+ * Distintivo del programa de primeros socios. Aparece en el hero y al pie del
+ * bloque de contacto; en los dos lugares es un ancla a la sección `partner`.
+ * Ver src/components/ProgramBadge.tsx.
+ */
+export const programBadge = {
+  label: "Programa de primeros socios · 2026",
+  href: "#programa",
+};
+
 export const hero = {
-  kicker: "Programa de primeros socios · 2026",
   headline: ["Nadie debería", "tener que adivinar", "si ir a la guardia."],
   sub: "Etria acompaña al afiliado desde la app de su cobertura: entiende lo que le está pasando y lo orienta hacia la atención médica que necesita.",
   ctaPrimary: "Contactar",
@@ -215,7 +224,7 @@ export const product = {
       body: "Los protocolos clínicos y las mejoras del sistema se publican del lado de Etria. No hay trabajo del lado del financiador.",
     },
     {
-      title: "White-label desde el primer día",
+      title: "Marca blanca desde el primer día",
       body: "Tipografías, colores y tono se configuran por cliente. Para el afiliado, sigue siendo la app de su cobertura de siempre.",
     },
     {
@@ -224,7 +233,7 @@ export const product = {
     },
     {
       title: "Espera de guardia, estimada",
-      body: "Se arranca con estimación histórica por prestador y se avanza hacia datos directos a medida que se habilitan las integraciones.",
+      body: "Actualmente se usa estimación histórica por prestador, desarrollando funcionalidad para ver tiempos de espera en tiempo real.",
     },
     {
       title: "Agenda y cartilla conectadas",
@@ -234,7 +243,7 @@ export const product = {
 };
 
 /**
- * SECCIÓN "CÓMO ENTRAMOS" — posicionamiento de etapa.
+ * SECCIÓN "IMPLEMENTACIÓN" — posicionamiento de etapa.
  * Separa lo que ya está cerrado (capa clínica) de lo que se define con cada
  * cliente (capa comercial). El objetivo es mostrar que hay margen de
  * co-diseño sin que el producto parezca inacabado: la columna izquierda
@@ -243,7 +252,7 @@ export const product = {
  * prototipo, próximamente ni "en construcción".
  */
 export const partner = {
-  eyebrow: "Cómo entramos",
+  eyebrow: "Implementación",
   headline: "El motor clínico está definido. La implementación se define en conjunto.",
   sub: "Etria no se ofrece como una licencia cerrada. El producto se está ajustando junto a un grupo acotado de financiadores para que responda a cómo funciona de verdad una cartera: su cartilla, su agenda, sus tiempos de guardia, sus reglas de derivación.",
   columns: [

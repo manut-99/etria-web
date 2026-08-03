@@ -56,6 +56,20 @@
     line-height: 1.05;
     text-wrap: balance;
   }
+
+  /* Ritmo de fondos: las secciones de <main> alternan blanco y paper solas.
+     Agregar o reordenar secciones no exige elegirles fondo — se acomodan.
+     Va en @layer base a propósito: una utilidad `bg-*` puesta en el <section>
+     le gana y lo saca de la alternancia (así funcionan el hero y Regulatory,
+     que traen su propio fondo oscuro). Las secciones que sí alternan no deben
+     declarar `bg-*` ni bordes de separación: el cambio de color ya separa. */
+  main > section:nth-of-type(odd) {
+    background-color: #fff;
+  }
+
+  main > section:nth-of-type(even) {
+    background-color: var(--color-paper);
+  }
 }
 
 /* --- Etiquetas utilitarias --------------------------------------*/

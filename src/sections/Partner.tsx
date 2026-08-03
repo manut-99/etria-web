@@ -11,7 +11,7 @@ const dot = ["bg-mid", "bg-ember"];
 
 export function Partner() {
   return (
-    <section id="programa" className="border-t border-mist bg-paper py-24 sm:py-32">
+    <section id="programa" className="py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
           <p className="eyebrow text-ember">{partner.eyebrow}</p>
@@ -26,7 +26,7 @@ export function Partner() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 sm:gap-6">
           {partner.columns.map((col, i) => (
             <Reveal key={col.title} delay={i * 90}>
-              <div className="relative h-full overflow-hidden rounded-2xl border border-mist bg-white p-6 sm:p-7">
+              <div className="relative h-full overflow-hidden rounded-2xl border border-mist bg-paper p-6 sm:p-7">
                 <span
                   aria-hidden="true"
                   className={`absolute inset-y-0 left-0 w-[3px] ${rail[i]}`}

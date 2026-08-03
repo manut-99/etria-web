@@ -6,7 +6,7 @@ const DOT = ["#ff6b2c", "#ffa23a", "#6f8fd0", "#1e4fa3", "#0b2a5b"];
 
 export function Scale() {
   return (
-    <section className="border-y border-mist bg-[linear-gradient(180deg,#eef3fb,#f4f7fc)] py-24 sm:py-32">
+    <section className="py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
           <p className="eyebrow text-ember">{scale.eyebrow}</p>

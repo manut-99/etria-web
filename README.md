@@ -68,6 +68,17 @@ white-label para un cliente se resuelve cambiando cinco variables.
 | `--color-ember` | `#ff6b2c` | acento naranja, CTAs       |
 | `--color-amber` | `#ffa23a` | segundo escalón de la escala |
 
+#### Fondos alternados
+
+Las secciones de `<main>` alternan blanco y `paper` **solas**: la regla vive en
+`src/index.css` (`main > section:nth-of-type(...)`, dentro de `@layer base`).
+Al agregar o reordenar una sección no hay que elegirle fondo — por eso los
+`<section>` no llevan clase `bg-*` ni bordes de separación entre secciones.
+
+La excepción son las secciones con fondo propio oscuro (el hero, `Regulatory`):
+la utilidad `bg-*` en el `<section>` le gana a la regla base y las deja fuera de
+la alternancia.
+
 ---
 
 ## Contacto

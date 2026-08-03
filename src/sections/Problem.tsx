@@ -7,7 +7,7 @@ export function Problem() {
   const [story, setStory] = useState<PatientStory | null>(null);
 
   return (
-    <section id="problema" className="border-b border-mist bg-paper py-24 sm:py-32">
+    <section id="problema" className="py-24 sm:py-32">
       <div className="mx-auto grid max-w-6xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <p className="eyebrow text-ember">{problem.eyebrow}</p>

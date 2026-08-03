@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { cta, site } from "../content";
+import { ProgramBadge } from "../components/ProgramBadge";
 import { Reveal } from "../components/Reveal";
 
 type Status = "idle" | "sending" | "ok" | "error";
@@ -58,7 +59,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contacto" className="bg-paper px-5 py-24 sm:px-8 sm:py-32">
+    <section id="contacto" className="px-5 py-24 sm:px-8 sm:py-32">
       <Reveal className="mx-auto max-w-6xl">
         <div className="relative overflow-hidden rounded-3xl bg-[linear-gradient(150deg,#0b2a5b,#061635)] px-7 py-14 sm:px-12 sm:py-16">
           <div
@@ -82,6 +83,8 @@ export function Contact() {
                   {site.contactEmail}
                 </a>
               </p>
+
+              <ProgramBadge className="mt-5 self-start" />
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 sm:p-7">
