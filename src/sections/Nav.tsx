@@ -23,7 +23,8 @@ export function Nav() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <Logo light={!solid} />
 
-        <div className="hidden items-center gap-7 lg:flex">
+        {/* gap ajustado: con seis links el renglón no entra a 1024px con gap-7 */}
+        <div className="hidden items-center gap-5 lg:flex xl:gap-7">
           {nav.links.map((l) => (
             <a
               key={l.href}

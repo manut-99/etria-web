@@ -6,6 +6,7 @@ import { Scale } from "./sections/Scale";
 import { Engine } from "./sections/Engine";
 import { Product } from "./sections/Product";
 import { Partner } from "./sections/Partner";
+import { Team } from "./sections/Team";
 import { Contact } from "./sections/Contact";
 import { Footer } from "./sections/Footer";
 
@@ -29,6 +30,7 @@ export default function App() {
         <Engine />
         <Product />
         <Partner />
+        <Team />
         {/* <Regulatory /> */}
         <Contact />
       </main>

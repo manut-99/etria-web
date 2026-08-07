@@ -50,20 +50,6 @@ export function Partner() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={180}>
-          <p
-            className="mt-12 max-w-2xl border-t border-deep/15 pt-8 text-[1.25rem] leading-snug text-deep sm:text-[1.45rem]"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 600,
-              letterSpacing: "-0.02em",
-              textWrap: "balance",
-            }}
-          >
-            {partner.close}
-          </p>
-        </Reveal>
       </div>
     </section>
   );

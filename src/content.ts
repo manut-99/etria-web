@@ -40,6 +40,7 @@ export const nav = {
     { label: "Motor clínico", href: "#motor" },
     { label: "Para el financiador", href: "#producto" },
     { label: "Implementación", href: "#programa" },
+    { label: "Equipo", href: "#equipo" },
   ],
   cta: "Contactar",
 };
@@ -55,7 +56,7 @@ export const programBadge = {
 };
 
 export const hero = {
-  headline: ["Nadie debería", "tener que adivinar", "si ir a la guardia."],
+  headline: ["Nadie tendría", "que adivinar", "si ir a la guardia."],
   sub: "Etria acompaña al afiliado desde la app de su cobertura: entiende lo que le está pasando y lo orienta hacia la atención médica que necesita.",
   ctaPrimary: "Contactar",
   ctaSecondary: "Ver cómo funciona",
@@ -275,7 +276,57 @@ export const partner = {
       ],
     },
   ],
-  close: "Los primeros no eligen entre configuraciones: definen la que va a quedar.",
+};
+
+/**
+ * SECCIÓN "QUIÉNES SOMOS".
+ * Las fotos viven en public/equipo (recorte cuadrado, 560px, mismo fondo de
+ * estudio en las cuatro). `role` es la síntesis del frente que cada persona
+ * lidera dentro de Etria; `bio` va en párrafos para respetar el ritmo del
+ * texto original. El orden de `members` es el que se ve en pantalla.
+ */
+export const team = {
+  eyebrow: "Quiénes somos",
+  headline: "Cuatro bioingenieros, cuatro frentes del mismo problema.",
+  sub: "El equipo fundador combina estrategia de producto, comercial y regulatoria, relación con el sistema de salud, arquitectura de software médico, calidad y gestión de riesgos, y desarrollo de modelos clínicos.",
+  members: [
+    {
+      name: "Manuel Teubal",
+      role: "Estrategia y regulación",
+      photo: "/equipo/manuel.jpg",
+      bio: [
+        "Bioingeniero con experiencia en producto y consultoría estratégica en salud, con trayectoria en Disbyte, ZS y la Comisión Nacional de Energía Atómica (CNEA). En Etria lidera la estrategia completa, relaciones institucionales, el desarrollo de negocio y la gestión regulatoria de la compañía, articulando la interacción con prestadores, financiadores y organismos del sector.",
+        "Lidera la comunicación estratégica buscando traducir requisitos regulatorios y dinámicas del sistema sanitario en oportunidades de adopción, asegurando que la plataforma no solo sea técnicamente sólida, sino también viable y escalable dentro de marcos normativos exigentes. Impulsa el posicionamiento de Etria en el ecosistema de salud, construyendo alianzas y habilitando el acceso a entornos clínicos donde la regulación es un factor crítico.",
+      ],
+    },
+    {
+      name: "Ignacio Alurralde",
+      role: "Arquitectura y producto",
+      photo: "/equipo/ignacio.jpg",
+      bio: [
+        "Bioingeniero y Backend Engineer con amplia experiencia en el desarrollo de software biomédico en Eccosur. Especializado en interoperabilidad médica (DICOM, DICOMweb), automatización de flujos clínicos e integración de sistemas complejos, ha construido soluciones robustas que hoy operan en más de 80 entornos de clientes.",
+        "En Etria combina liderazgo técnico con product ownership, definiendo la arquitectura y evolución del producto con foco en escalabilidad, confiabilidad y adopción en entornos reales de salud. Lidera el diseño de la plataforma y la construcción de una infraestructura tecnológica sólida, asegurando que el sistema pueda integrarse de forma eficiente con los distintos actores y flujos del ecosistema sanitario.",
+      ],
+    },
+    {
+      name: "Mika Dadi",
+      role: "Calidad y seguridad",
+      photo: "/equipo/mika.jpg",
+      bio: [
+        "Bioingeniera con experiencia en investigación y ciencia de datos, con trayectoria en la University of British Columbia y The Walt Disney Company. En Etria lidera el enfoque de calidad y seguridad del sistema, definiendo procesos de validación, gestión de riesgos y control de calidad para entornos clínicos.",
+        "Su rol abarca también la seguridad de los datos y la privacidad de la información de salud, que exige un tratamiento especialmente cuidadoso. Define los criterios de resguardo y confidencialidad con los que el sistema la maneja. Su trabajo asegura que cada componente del producto sea confiable, trazable y cumpla con estándares exigentes antes de impactar en sistemas de salud.",
+      ],
+    },
+    {
+      name: "Martín Amagliani",
+      role: "Inteligencia artificial clínica",
+      photo: "/equipo/martin.jpg",
+      bio: [
+        "Bioingeniero especializado en inteligencia artificial aplicada a la salud, con experiencia en ÜMA Salud y Eccosur. Ha trabajado en el desarrollo y validación de modelos orientados a problemas clínicos reales, combinando análisis de datos con comprensión del contexto sanitario.",
+        "En Etria lidera la estrategia de inteligencia artificial del producto, definiendo cómo se diseñan, entrenan y validan los modelos para asegurar resultados confiables y clínicamente relevantes. Su enfoque prioriza el rigor metodológico, la interpretabilidad y la integración efectiva de la IA en flujos de trabajo, para que cada solución no solo funcione, sino que genere confianza y mejore la toma de decisiones en entornos reales.",
+      ],
+    },
+  ],
 };
 
 /**
