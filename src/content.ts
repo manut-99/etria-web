@@ -402,3 +402,32 @@ export const footer = {
     "Etria es un software de orientación clínica. No realiza diagnósticos, no prescribe y no reemplaza la consulta con un profesional de la salud. Ante una emergencia, comunicarse con el {emergency}.",
   rights: "Todos los derechos reservados.",
 };
+
+/**
+ * Calculadora de ahorro (/calculadora). Página aparte, fuera del nav y con
+ * noindex: el link se comparte a mano. Las tasas viven en
+ * src/calculadora/formula.ts.
+ */
+export const calculator = {
+  title: "Calculadora de ahorro",
+  sub: "Estimación del ahorro al derivar consultas no urgentes de la guardia a teleconsulta o cuidado en casa.",
+  fields: {
+    members: "Cantidad de afiliados",
+    visits: "Visitas a guardia por mes",
+    guardCost: "Costo por visita a guardia (USD)",
+    teleCost: "Costo por teleconsulta (USD)",
+    nonUrgent: "Visitas a guardia no urgentes",
+    redirect: "No urgentes que se redirigen",
+  },
+  button: "Calcular",
+  results: {
+    monthly: "Ahorro mensual estimado",
+    annual: "Ahorro anual",
+    pmpm: "Por afiliado por mes",
+  },
+  invalid: "Completar todos los campos con valores mayores a cero.",
+  noSavings: "Con estos valores la derivación no genera ahorro.",
+  assumptions:
+    "Supone que, de las visitas redirigidas, el {tele} pasa a teleconsulta y el {home} a cuidado en casa, sin costo de atención.",
+  back: "Volver al sitio",
+};

@@ -160,6 +160,64 @@ Si `site.formEndpoint` se deja vacío en `src/content.ts`, el formulario vuelve
 al comportamiento anterior (abre el cliente de correo). Útil para trabajar sin
 credenciales.
 
+## Calculadora de ahorro (`/calculadora`)
+
+Página aparte, fuera del nav y con `noindex`: el link se comparte a mano. Toma
+afiliados, visitas a guardia por mes y costos de guardia y teleconsulta (USD),
+más dos sliders: % de visitas no urgentes (85% por defecto) y % de esas que se
+redirige (25% por defecto). Devuelve el ahorro mensual, anual y por afiliado
+por mes:
+
+```
+redirigidas = visitas × % no urgentes × % redirigido
+por visita  = 80% × (guardia − teleconsulta) + 20% × guardia   (20% va a cuidado en casa, costo 0)
+ahorro      = redirigidas × por visita × 80%
+```
+
+El último 80% es un margen conservador que **no se muestra** en la página. El
+80/20 teleconsulta/casa sale de Jácome et al. 2019 (ver `formula.ts`).
+
+| Qué | Archivo |
+| --- | --- |
+| Página | `calculadora/index.html` → `src/calculadora/Calculator.tsx` |
+| Tasas y fórmula | `src/calculadora/formula.ts` (repetida en `api/calculator.ts`) |
+| Textos | `src/content.ts` → `calculator` |
+| Registro | `api/calculator.ts` |
+
+En local, con `npm run dev`, la página está en `http://localhost:5173/calculadora/`.
+
+### Registro en Google Sheets
+
+Cada "Calcular" agrega una fila con fecha y hora, los tres valores ingresados
+el ahorro bruto (100%) y el mostrado (80%). Anual y por afiliado se derivan de esas columnas. Si el registro falla, el resultado se muestra igual.
+
+1. Crear una Google Sheet. En la fila 1: `Fecha | Afiliados | Visitas/mes | % no urgentes | % redirigido | Costo guardia | Costo teleconsulta | Ahorro bruto | Ahorro mostrado`.
+2. **Extensiones → Apps Script**, pegar esto y reemplazar `CLAVE`:
+
+   ```js
+   const SECRET = "CLAVE";
+
+   function doPost(e) {
+     const d = JSON.parse(e.postData.contents);
+     if (d.secret !== SECRET) return ContentService.createTextOutput("forbidden");
+     SpreadsheetApp.getActiveSpreadsheet().getSheets()[0].appendRow([
+       new Date(d.timestamp), d.members, d.visits, d.nonUrgent, d.redirect,
+       d.guardCost, d.teleCost, d.gross, d.shown,
+     ]);
+     return ContentService.createTextOutput("ok");
+   }
+   ```
+
+3. **Implementar → Nueva implementación → Aplicación web**. Ejecutar como: *yo*.
+   Quién tiene acceso: *cualquier persona*. Copiar la URL que termina en `/exec`.
+4. En Vercel, cargar `SHEET_WEBHOOK_URL` (esa URL) y `SHEET_WEBHOOK_SECRET`
+   (la misma `CLAVE`), y volver a deployar.
+
+La fecha queda en la zona horaria de la planilla (**Archivo → Configuración**;
+conviene `GMT-3 Buenos Aires`). Si se edita el script, hay que publicar una
+nueva versión en **Implementar → Administrar implementaciones** para que tome
+el cambio.
+
 ## Sección regulatoria (desactivada)
 
 Está escrita y lista, pero fuera del sitio por ahora. Vive en

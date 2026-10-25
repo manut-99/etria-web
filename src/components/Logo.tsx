@@ -35,10 +35,16 @@ export function LogoMark({
   );
 }
 
-export function Logo({ light = false }: { light?: boolean }) {
+export function Logo({
+  light = false,
+  href = "#top",
+}: {
+  light?: boolean;
+  href?: string;
+}) {
   return (
     <a
-      href="#top"
+      href={href}
       className="flex items-center gap-2.5"
       aria-label={`${site.brand} — inicio`}
     >
