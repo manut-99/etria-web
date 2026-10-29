@@ -13,7 +13,7 @@ export function Footer() {
               href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[0.88rem] text-sky/60 transition-colors hover:text-white"
+              className="flex items-center gap-2 rounded-full border border-white/20 px-3 py-2 text-[0.88rem] text-sky/90 transition-colors hover:border-white/40 hover:text-white sm:px-4"
             >
               <LinkedInIcon className="h-5 w-5" />
               <span className="hidden sm:inline">{footer.linkedinLabel}</span>

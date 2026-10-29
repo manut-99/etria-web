@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { nav } from "../content";
+import { footer, nav, site } from "../content";
 import { Logo } from "../components/Logo";
+import { LinkedInIcon } from "../components/LinkedInIcon";
 
 export function Nav() {
   const [solid, setSolid] = useState(false);
@@ -38,12 +39,27 @@ export function Nav() {
           ))}
         </div>
 
-        <a
-          href="#contacto"
-          className="rounded-full bg-ember px-4 py-2 text-[0.88rem] font-semibold text-white transition-transform hover:-translate-y-px hover:bg-[#ff7d45]"
-        >
-          {nav.cta}
-        </a>
+        <div className="flex items-center gap-2 sm:gap-3">
+          {site.linkedin && (
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={footer.linkedinLabel}
+              className={`rounded-full p-2 transition-colors ${
+                solid ? "text-ink/55 hover:text-mid" : "text-white/70 hover:text-white"
+              }`}
+            >
+              <LinkedInIcon className="h-5 w-5" />
+            </a>
+          )}
+          <a
+            href="#contacto"
+            className="rounded-full bg-ember px-4 py-2 text-[0.88rem] font-semibold text-white transition-transform hover:-translate-y-px hover:bg-[#ff7d45]"
+          >
+            {nav.cta}
+          </a>
+        </div>
       </nav>
     </header>
   );
