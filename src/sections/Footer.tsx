@@ -1,11 +1,26 @@
 import { footer, site } from "../content";
 import { Logo } from "../components/Logo";
+import { LinkedInIcon } from "../components/LinkedInIcon";
 
 export function Footer() {
   return (
     <footer className="bg-ink px-5 pt-14 pb-10 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <Logo light />
+        <div className="flex items-center justify-between gap-6">
+          <Logo light />
+          {site.linkedin && (
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[0.88rem] text-sky/60 transition-colors hover:text-white"
+            >
+              <LinkedInIcon className="h-5 w-5" />
+              <span className="hidden sm:inline">{footer.linkedinLabel}</span>
+              <span className="sr-only sm:hidden">{footer.linkedinLabel}</span>
+            </a>
+          )}
+        </div>
         <p className="mt-6 max-w-xl text-[1.02rem] leading-relaxed text-sky/85">
           {footer.brandLine}
         </p>

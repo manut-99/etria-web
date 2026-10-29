@@ -1,5 +1,6 @@
 import { team } from "../content";
 import { Reveal } from "../components/Reveal";
+import { LinkedInIcon } from "../components/LinkedInIcon";
 
 /**
  * Las fotos son cuadradas y salen del mismo estudio, con el fondo azul de la
@@ -35,10 +36,21 @@ export function Team() {
                     decoding="async"
                     className="h-20 w-20 shrink-0 rounded-xl object-cover ring-1 ring-mist sm:h-[5.5rem] sm:w-[5.5rem]"
                   />
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <h3 className="text-[1.22rem] leading-tight">{m.name}</h3>
                     <p className="eyebrow mt-2 text-[0.68rem] text-mid">{m.role}</p>
                   </div>
+                  {m.linkedin && (
+                    <a
+                      href={m.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Perfil de ${m.name} en LinkedIn`}
+                      className="shrink-0 self-start rounded-lg p-2 text-ink/35 transition-colors hover:bg-mist/60 hover:text-mid"
+                    >
+                      <LinkedInIcon className="h-5 w-5" />
+                    </a>
+                  )}
                 </div>
 
                 <div className="mt-5 flex flex-col gap-3 border-t border-mist pt-5">
